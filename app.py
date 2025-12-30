@@ -18,15 +18,29 @@ st.markdown("""
 
 # Esconde elementos padrão do Streamlit
 hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            div[data-testid="stToolbar"] {visibility: hidden;}
-            div[data-testid="stDecoration"] {visibility: hidden;}
-            div[data-testid="stStatusWidget"] {visibility: hidden;}
-            </style>
-            """
+<style>
+    /* Esconde o cabeçalho padrão */
+    header {visibility: hidden; display: none !important;}
+    
+    /* Esconde o rodapé padrão */
+    footer {visibility: hidden; display: none !important;}
+    
+    /* Esconde o menu de hambúrguer */
+    #MainMenu {visibility: hidden; display: none !important;}
+    
+    /* Esconde a barra colorida decorativa no topo */
+    div[data-testid="stDecoration"] {visibility: hidden; display: none !important;}
+    
+    /* Esconde o botão 'Deploy' ou status se aparecer */
+    div[data-testid="stStatusWidget"] {visibility: hidden; display: none !important;}
+    
+    /* Ajusta o padding para o conteúdo subir e ocupar o espaço vazio */
+    .block-container {
+        padding-top: 1rem !important;
+        padding-bottom: 0rem !important;
+    }
+</style>
+"""
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.divider()
