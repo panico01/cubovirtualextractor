@@ -16,6 +16,19 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+# Esconde elementos padrão do Streamlit
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            div[data-testid="stToolbar"] {visibility: hidden;}
+            div[data-testid="stDecoration"] {visibility: hidden;}
+            div[data-testid="stStatusWidget"] {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 st.divider()
 
 # Barra Lateral (Inputs)
