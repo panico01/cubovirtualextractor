@@ -22,22 +22,27 @@ hide_streamlit_style = """
     /* Esconde o cabeçalho padrão */
     header {visibility: hidden; display: none !important;}
     
-    /* Esconde o rodapé padrão */
-    footer {visibility: hidden; display: none !important;}
+    /* Esconde o rodapé padrão usando múltiplos seletores */
+    footer {visibility: hidden; display: none !important; height: 0px;}
+    .stFooter {visibility: hidden; display: none !important; height: 0px;}
+    div[data-testid="stFooter"] {visibility: hidden; display: none !important; height: 0px;}
     
-    /* Esconde o menu de hambúrguer */
+    /* Esconde o menu de hambúrguer e a barra de decoração superior */
     #MainMenu {visibility: hidden; display: none !important;}
-    
-    /* Esconde a barra colorida decorativa no topo */
     div[data-testid="stDecoration"] {visibility: hidden; display: none !important;}
     
-    /* Esconde o botão 'Deploy' ou status se aparecer */
+    /* Esconde o widget de status de deploy */
     div[data-testid="stStatusWidget"] {visibility: hidden; display: none !important;}
     
-    /* Ajusta o padding para o conteúdo subir e ocupar o espaço vazio */
+    /* Ajusta o padding do container principal para remover o espaço morto */
     .block-container {
         padding-top: 1rem !important;
         padding-bottom: 0rem !important;
+    }
+    
+    /* Tenta esconder o container que envolve o rodapé no modo embedded */
+    iframe[title="streamlitApp"] + div {
+        display: none !important;
     }
 </style>
 """
